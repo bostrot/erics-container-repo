@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  openvpn:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ${PWD}/config:/config

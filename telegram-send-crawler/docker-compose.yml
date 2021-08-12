@@ -1,0 +1,8 @@
+version: "3.3"
+services:
+  checker:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - ${PWD}/config:/config

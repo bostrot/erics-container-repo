@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  openconnect:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    privileged: true
+    networks:
+      - openconnect-network
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - SERVER=YOUR_ANYCONNECT_SERVER
+      - USER=YOUR_USER_NAME
+      - PASSWORD=YOUR_PASSWORD
+      
+networks:
+  openconnect-network:
+    driver: bridge

@@ -1,0 +1,1 @@
+Takes vpn.ovpn and certificates from config folder.

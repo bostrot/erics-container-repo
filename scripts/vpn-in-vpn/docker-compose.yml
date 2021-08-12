@@ -1,0 +1,45 @@
+version: "3.3"
+services:
+  openconnect:
+    build:
+      dockerfile: Dockerfile
+      context: ../openconnect-client
+    privileged: true
+    networks:
+      - openconnect-network
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - SERVER=YOUR_ANYCONNECT_SERVER
+      - USER=YOUR_USER_NAME
+      - PASSWORD=YOUR_PASSWORD
+
+  openvpn:
+    build:
+      dockerfile: Dockerfile
+      context: ../openvpn-client
+    privileged: true
+    depends_on:
+      - openconnect
+    cap_add:
+      - NET_ADMIN
+    network_mode: service:openconnect
+    volumes:
+      - ${PWD}/config:/config
+
+  checker:
+    build:
+      dockerfile: Dockerfile
+      context: ../telegram-send-server-status
+    depends_on:
+      - openconnect
+      - openvpn
+    network_mode: service:openvpn
+    volumes:
+      - ${PWD}/config_checker:/config
+
+
+networks:
+  openconnect-network:
+    driver: bridge

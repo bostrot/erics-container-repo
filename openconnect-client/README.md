@@ -1,0 +1,1 @@
+docker-compose with environment variables should start the client successfully
