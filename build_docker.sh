@@ -2,7 +2,7 @@
 # Simple script to build containers and upload to registry
 
 # Login to docker hub
-docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+docker login --password-stdin -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
 
 docker buildx create --use
 
