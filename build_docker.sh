@@ -5,7 +5,7 @@
 docker login --password-stdin -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
 
 docker context create ctx
-docker buildx create --use jenkins-docker
+docker buildx create --use
 
 # Build and push docker containers
 for folder in $(ls -d */);
