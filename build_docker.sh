@@ -2,14 +2,15 @@
 # Simple script to build containers and upload to registry
 
 # Login to docker hub
-docker login --password-stdin -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+# docker login --password-stdin -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
 
 #docker context create ctx
 #docker buildx create --use
 
-docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes docker login --password-stdin -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
 docker buildx create --name multiarch --driver docker-container --use
 docker buildx inspect --bootstrap
+docker login --password-stdin -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
 
 # Build and push docker containers
 for folder in $(ls -d */);
