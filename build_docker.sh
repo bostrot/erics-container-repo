@@ -4,7 +4,8 @@
 # Login to docker hub
 docker login --password-stdin -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
 
-docker buildx create --use
+docker context create ctx
+docker buildx create --use buildxctx
 
 # Build and push docker containers
 for folder in $(ls -d */);
