@@ -7,10 +7,10 @@
 #docker context create ctx
 #docker buildx create --use
 
+docker login --password-stdin -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 docker buildx create --name multiarch --driver docker-container --use
 docker buildx inspect --bootstrap
-docker login --password-stdin -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
 
 # Build and push docker containers
 for folder in $(ls -d */);
