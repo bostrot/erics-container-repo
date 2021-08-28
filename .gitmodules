@@ -1,0 +1,4 @@
+[submodule "telegram-support-bot"]
+	path = telegram-support-bot
+	url = https://github.com/bostrot/telegram-support-bot.git
+	branch = master
