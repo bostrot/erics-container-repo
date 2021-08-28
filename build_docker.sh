@@ -7,7 +7,7 @@
 #docker context create ctx
 #docker buildx create --use
 
-docker login --user $CI_REGISTRY_USER --password-stdin $CI_REGISTRY_PASSWORD
+docker login --username $CI_REGISTRY_USER --password-stdin $CI_REGISTRY_PASSWORD
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 docker buildx create --name multiarch --driver docker-container --use
 docker buildx inspect --bootstrap
