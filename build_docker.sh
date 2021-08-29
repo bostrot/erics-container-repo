@@ -24,5 +24,5 @@ do
     echo "Building and pushing $folder_name";
     # echo `docker build -t bostrot/$folder_name:latest $folder`;
     # echo `docker push bostrot/$folder_name:latest`;
-    echo `docker buildx build --push --platform linux/amd64,linux/386,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6 --tag bostrot/$folder_name:latest --tag bostrot/$folder_name:latest $folder`
+    echo `docker buildx build --push --platform linux/amd64,linux/arm64,linux/riscv64,linux/ppc64le,linux/386,linux/arm/v7,linux/arm/v6 --tag bostrot/$folder_name:latest --tag bostrot/$folder_name:latest $folder`
 done;
