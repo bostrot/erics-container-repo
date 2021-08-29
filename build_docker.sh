@@ -18,5 +18,5 @@ do
         continue
     fi
     echo "Building and pushing $folder_name";
-    echo `docker buildx build --push --platform linux/amd64,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x --tag bostrot/$folder_name:latest $folder`
+    echo `docker buildx build --push --platform linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --tag bostrot/$folder_name:latest $folder`
 done;
