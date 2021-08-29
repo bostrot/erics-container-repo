@@ -1,5 +1,6 @@
 ## erics-container-repo
-My docker containers in one place
+My docker containers in one place.
+All containers in this repo are updated weekly and pushed to docker hub.
 
 ### Disclaimer
 
