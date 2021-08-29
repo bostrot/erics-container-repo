@@ -1,6 +1,9 @@
 #!/bin/sh
 # Simple script to build containers and upload to registry
 
+# Get submodules
+git submodule update --init --recursive
+
 # Login to docker hub
 docker login --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD
 
