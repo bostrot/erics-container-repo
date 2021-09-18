@@ -14,3 +14,9 @@ Different licensing may apply when using the software in the containers.
 Builds are made with GitLab CI (see .gitlab-ci.yml) 
 
 You can see the pipeline here: https://gitlab.com/botty-group/erics-container-repo/-/pipelines
+
+### Submodule
+
+Update:
+
+    git submodule update --init --recursive
