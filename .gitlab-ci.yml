@@ -8,6 +8,11 @@ variables:
 
 services:
   - docker:dind
+  
+before_script:
+  - df
+  - cat /etc/resolv.conf
+  - cat /etc/hosts
 
 build:
   stage: build
