@@ -1,4 +1,4 @@
-image: jdrouet/docker-with-buildx:stable
+image: jdrouet/docker-with-buildx:latest
 
 variables:
   DOCKER_HOST: tcp://docker:2375/
